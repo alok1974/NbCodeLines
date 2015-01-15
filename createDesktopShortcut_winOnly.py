@@ -37,7 +37,7 @@ def _createShortcut():
     path = os.path.join(desktop, "Nb Code Lines.lnk")
     target = os.path.abspath(os.path.join(ROOT_DIR, 'run.pyw'))
     wDir = ROOT_DIR
-    icon = os.path.abspath(os.path.join(ROOT_DIR, 'images/_ico'))
+    icon = os.path.abspath(os.path.join(ROOT_DIR, 'rsc/_ico'))
 
     shell = Dispatch('WScript.Shell')
     shortcut = shell.CreateShortCut(path)
