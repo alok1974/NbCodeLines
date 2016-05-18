@@ -10,6 +10,7 @@ image_src/
 # C extensions
 *.so
 
+
 # Packages
 *.egg
 *.egg-info
