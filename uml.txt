@@ -1,0 +1,275 @@
++---------------+
+| QtGui.QWidget |
++---------------+
+               .                  
+              /_\                 
+               |                  
+               |                  
+               |                  
+               |                  
+               |                  
++--------------------------------+
+|          MainWidgetUI          |
++--------------------------------+
+               .                                                  
+              /_\                                                 
+               |                                                  
+               |                                                  
+               |                                                  
+               |                                                  
+               |                                                  
++--------------------------------+                                
+|           MainWidget           |                                
+|--------------------------------|                                
+| _ranSignal                     |  ---->  [ TextWidget ]         
+| _rootDir                       |  ---->  [ CalendarWidget ]     
+| _result                        |  ---->  [ RunAnalyticsTask ]   
+| _data                          |  ---->  [ RecentSearchData ]   
+| _rootDirChanged                |  ---->  [ FileTypeWidget ]     
+| _day                           |  ---->  [ F2PressableLineEdit ]
+| _month                         |                                
+| _year                          |                                
+| _fileTypesData                 |                                
+| _fileExt                       |                                
+| _hasError                      |                                
+| _updateString                  |                                
+| _animCounter                   |                                
+| _animTimerCounter              |                                
+| _nbHoldFrame                   |                                
+| _animatedStr                   |                                
+| _nbPrjDays                     |                                
+| _avgLinesPerDay                |                                
+| _avgLinesPerHour               |                                
+| _codeDensity                   |                                
+| _sumTotalLine                  |                                
+| _sumActualLine                 |                                
+| _rsd                           |                                
+| _dataTableItem                 |                                
+| _dataTableBtn                  |                                
+| ft                             |                                
+| cw                             |                                
+| _rat                           |                                
+| tw                             |                                
+|--------------------------------|                                
+| __init__                       |                                
+| _initUI                        |                                
+| _initLineEdits                 |                                
+| _initDataLineEdits             |                                
+| _initTable                     |                                
+| _hideDataTableBtn              |                                
+| _connectSignals                |                                
+| _clearData                     |                                
+| _clearDataLineEdits            |                                
+| _clearDataTable                |                                
+| _clearRootFolder               |                                
+| _clearFileExt                  |                                
+| _clearDate                     |                                
+| _handleRootFolderChange        |                                
+| _handleFileTypeChange          |                                
+| _handleDateChange              |                                
+| _handleTableDoubleClick        |                                
+| _setAnalyticDataFromMainWindow |                                
+| _okBtnOnClicked                |                                
+| _informOfErrorOccured          |                                
+| _informOfUpdate                |                                
+| _informOfFinished              |                                
+| _fillData                      |                                
+| _fillDataTable                 |                                
+| _fillDataLineEdits             |                                
+| _cancelBtnOnClicked            |                                
+| _showErrorText                 |                                
++--------------------------------+                                
+                    
+                    
+                    
+                    
++------------------+
+|      object      |
++------------------+
+        .                                                                                                                                                                                  
+       /_\                                                                                                                                                                                 
+        |                     [ object ]               [ object ]                                     [ object ]              [ object ]            [ object ]             [ object ]      
+        |                         .                        .                                              .                       .                     .                      .           
+        |                        /_\                      /_\                                            /_\                     /_\                   /_\                    /_\          
+        |                         |                        |                                              |                       |                     |                      |           
+        |                         |                        |                                              |                       |                     |                      |           
++------------------+       +---------------+       +------------------+                             +--------------+       +----------------+       +----------+       +------------------+
+|    CodeLines     |       |     Logger    |       |    JSONHelper    |                             |  StyleSheet  |       | TracebackError |       |   Test   |       | RecentSearchData |
+|------------------|       |---------------|       |------------------|                             |--------------|       |----------------|       |----------|       +------------------+
+| _qThread         |       | level         |       | extFile          |  ---->  [ json.load ]       | prefFile     |       | trace          |       | __init__ |                           
+| _folder          |       | criticalFunc  |       | _ext             |                             | style        |       |----------------|       | runTest  |                           
+| _ext             |       | infoFunc      |       |------------------|                             |--------------|       | __init__       |       +----------+                           
+| _startDate       |       | warningFunc   |       | __init__         |                             | __init__     |       | asString       |                                              
+| _startMonth      |       | debugFunc     |       | _createDefaults  |                             | _createPrefs |       +----------------+                                              
+| _startYear       |       | errorFunc     |       | _readExtensions  |                             | _readPrefs   |                                                                       
+| _data            |       | tracebackFunc |       | _writeExtensions |                             | _writePrefs  |                                                                       
+| _prjStartDate    |       | separatorFunc |       | getFileTypes     |                             | setColor     |                                                                       
+| _nbPrjDays       |       | spaceFunc     |       | setFileTypes     |                             +--------------+                                                                       
+| _nbTotalLines    |       |---------------|       +------------------+                                                                                                                    
+| _nbActualLines   |       | onDebug       |                                                                                                                                               
+| _codeDensity     |       | onWarning     |                                                                                                                                               
+| _avgLinesPerDay  |       | onCritical    |                                                                                                                                               
+| _avgLinesPerHour |       | onError       |                                                                                                                                               
+| _hasError        |       | onInfo        |                                                                                                                                               
+| _errStr          |       | onTraceback   |                                                                                                                                               
+| _findAll         |       | onSeparator   |                                                                                                                                               
+|------------------|       | onSpace       |                                                                                                                                               
+| __init__         |       | warning       |                                                                                                                                               
+| runThread        |       | info          |                                                                                                                                               
+| _assert          |       | debug         |                                                                                                                                               
+| _generateData    |       | error         |                                                                                                                                               
+| _wrap            |       | critical      |                                                                                                                                               
+| getData          |       | traceback     |                                                                                                                                               
++------------------+       | _buildString  |                                                                                                                                               
+                           | getLogger     |                                                                                                                                               
+                           | setLevel      |                                                                                                                                               
+                           | getLevel      |                                                                                                                                               
+                           | addSeparator  |                                                                                                                                               
+                           | addSpace      |                                                                                                                                               
+                           +---------------+                                                                                                                                               
+                    
+                    
+                    
+                    
++------------------+
+|  QtCore.QThread  |
++------------------+
+        .                                 
+       /_\                                
+        |                                 
+        |                                 
+        |                                 
+        |                                 
+        |                                 
++------------------+                      
+| RunAnalyticsTask |                      
+|------------------|                      
+| data             |  ---->  [ CodeLines ]
+| _folder          |  ---->  [ json.load ]
+| _ext             |                      
+| _startDate       |                      
+| _startMonth      |                      
+| _startYear       |                      
+| cl               |                      
+|------------------|                      
+| __init__         |                      
+| runAnalytics     |                      
+| run              |                      
++------------------+                      
+                           
+                           
+                           
+                           
++-------------------------+
+|    QtGui.QMainWindow    |
++-------------------------+
+            .                                           
+           /_\                                          
+            |                                           
+            |                                           
+            |                                           
+            |                                           
+            |                                           
++-------------------------+                             
+|        MainWindow       |                             
+|-------------------------|                             
+| _rsd                    |  ---->  [ TextWidget ]      
+| _mainWidget             |  ---->  [ MainWidget ]      
+| _recentSearchMenu       |  ---->  [ AboutWidget ]     
+| ab                      |  ---->  [ RecentSearchData ]
+| tw                      |                             
+|-------------------------|                             
+| __init__                |                             
+| _onDefaultStyleAction   |                             
+| _onDark01StyleAction    |                             
+| _onDark02StyleAction    |                             
+| _onDark03StyleAction    |                             
+| _setTheme               |                             
+| _onClearRecentSearches  |                             
+| _updateRecentSearchMenu |                             
+| _fileOpenMappedSlot     |                             
+| _onAboutAction          |                             
+| _onViewLicenseAction    |                             
+| _showErrorText          |                             
+| keyPressEvent           |                             
+| _onQuit                 |                             
++-------------------------+                             
+                  
+                  
+                  
+                  
++----------------+
+| QtGui.QDialog  |
++----------------+
+       .                                                                                                                   
+      /_\                                                                                                                  
+       |                    [ QtGui.QDialog ]            [ QtGui.QDialog ]       [ QtGui.QDialog ]       [ QtGui.QDialog ] 
+       |                            .                          .                      .                         .          
+       |                           /_\                        /_\                    /_\                       /_\         
+       |                            |                          |                      |                         |          
+       |                            |                          |                      |                         |          
++----------------+       +-----------------------+       +-------------+         +------------+          +----------------+
+| CalendarWidget |       |  FileTypeEntryWidget  |       | AboutWidget |         | TextWidget |          | FileTypeWidget |
++----------------+       |-----------------------|       +-------------+         +------------+          +----------------+
+                         | _entry                |                                                                         
+                         | _fileTypeNameLabel    |                                                                         
+                         | _fileTypeExtLabel     |                                                                         
+                         | _fileTypeNameLineEdit |                                                                         
+                         | _fileTypeExtLineEdit  |                                                                         
+                         | _okBtn                |                                                                         
+                         | _grid                 |                                                                         
+                         |-----------------------|                                                                         
+                         | __init__              |                                                                         
+                         | _initUI               |                                                                         
+                         | _updateUI             |                                                                         
+                         | _connect              |                                                                         
+                         | _okBtnOnClicked       |                                                                         
+                         +-----------------------+                                                                         
+                          
+                          
+                          
+                          
++------------------------+
+|     QtCore.QObject     |
++------------------------+
+           .                                              
+          /_\                                             
+           |                                              
+           |                                              
+           |                                              
+           |                                              
+           |                                              
++------------------------+                                
+| MouseDoubleClickFilter |                                
+|------------------------|                                
+| _doubleClicked         |  ---->  [ TextWidget ]         
+|------------------------|                                
+| eventFilter            |  ---->  [ FileTypeEntryWidget ]
++------------------------+                                
+                       
+                       
+                       
+                       
++---------------------+
+|   QtGui.QLineEdit   |
++---------------------+
+          .            
+         /_\           
+          |            
+          |            
+          |            
+          |            
+          |            
++---------------------+
+| F2PressableLineEdit |
+|---------------------|
+| __init__            |
+| event               |
++---------------------+
+             
+             
+             
+             
++-----------+
+| json.load |
++-----------+
